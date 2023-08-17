@@ -150,6 +150,12 @@ public class ServiceImpl<M extends BaseMapper<T>, T> implements IService<T> {
         return false;
     }
 
+    @Override
+    public T saveOrUpdateReturn(T entity) {
+        this.saveOrUpdate(entity);
+        return entity;
+    }
+
     @Transactional(rollbackFor = Exception.class)
     @Override
     public boolean saveOrUpdateBatch(Collection<T> entityList, int batchSize) {

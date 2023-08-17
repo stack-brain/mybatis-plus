@@ -162,6 +162,13 @@ public interface IService<T> {
     boolean saveOrUpdate(T entity);
 
     /**
+     * TableId 注解存在更新记录，否插入一条记录,并返回对象
+     *
+     * @param entity 实体对象
+     */
+    T saveOrUpdateReturn(T entity);
+
+    /**
      * 根据 ID 查询
      *
      * @param id 主键ID
