@@ -150,6 +150,13 @@ public class ServiceImpl<M extends BaseMapper<T>, T> implements IService<T> {
         return false;
     }
 
+    /**
+     * TableId 注解存在更新记录，否插入一条记录,并返回数据
+     *
+     * @param entity 实体对象
+     * @return boolean
+     */
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public T saveOrUpdateReturn(T entity) {
         this.saveOrUpdate(entity);
